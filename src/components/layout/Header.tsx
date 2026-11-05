@@ -15,7 +15,7 @@ export function Header({ dark, menuOpen, pageLabel, onToggleMenu }: HeaderProps)
         <div className="mil-frame-center" aria-hidden="true" />
         <button
           type="button"
-          className="mil-menu-btn"
+          className={`mil-menu-btn ${menuOpen ? 'mil-active' : ''}`}
           onClick={onToggleMenu}
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={menuOpen}
