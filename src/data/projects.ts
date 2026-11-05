@@ -1,3 +1,5 @@
+import { assetUrl } from '../utils/assets'
+
 export type Project = {
   slug: string
   title: string
@@ -24,7 +26,7 @@ export type YouTubeMusicVideo = {
   artistCredit?: string
 }
 
-const artworkPlaceholder = '/assets/media/2023/11/project-1-1.jpg'
+const artworkPlaceholder = assetUrl('/assets/media/2023/11/project-1-1.jpg')
 
 const verifiedYouTubeVideos: Record<string, YouTubeMusicVideo[]> = {
   milele: [

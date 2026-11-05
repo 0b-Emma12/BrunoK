@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
+import { assetUrl } from '../utils/assets'
 import { Accordion } from '../components/shared/Accordion'
 import { ArrowIcon, CheckIcon } from '../components/shared/Icons'
 import { InnerBanner } from '../components/shared/InnerBanner'
@@ -36,7 +37,7 @@ export function ServiceDetailPage() {
             <div className="col-lg-5">
               <div className="mil-image-frame mil-square mil-up">
                 <img
-                  src="/assets/media/bruno-k/bruno-k-performance-1.jpg"
+                  src={assetUrl('/assets/media/bruno-k/bruno-k-performance-1.jpg')}
                   alt="Bruno K in an outdoor artist photograph"
                   loading="lazy"
                 />

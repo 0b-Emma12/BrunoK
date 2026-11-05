@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { assetUrl } from '../utils/assets'
 import { BlogCard } from '../components/shared/BlogCard'
 import { ArrowIcon } from '../components/shared/Icons'
 import { TeamCard } from '../components/shared/TeamCard'
@@ -31,7 +32,7 @@ export function Home2Page() {
             </div>
             <div className="mil-portrait-frame personal-portrait" aria-hidden="true">
               <div className="mil-nimbus" />
-              <img src="/assets/media/bruno-k/bruno-k-portrait-1.jpg" alt="" />
+              <img src={assetUrl('/assets/media/bruno-k/bruno-k-portrait-1.jpg')} alt="" />
             </div>
           </div>
         </div>
@@ -69,7 +70,7 @@ export function Home2Page() {
             <div className="col-lg-5 offset-lg-1">
               <div className="mil-image-frame mil-square mil-up">
                 <img
-                  src="/assets/media/bruno-k/bruno-k-performance-2.jpg"
+                  src={assetUrl('/assets/media/bruno-k/bruno-k-performance-2.jpg')}
                   alt="Bruno K in a colorful close-up portrait"
                   loading="lazy"
                 />

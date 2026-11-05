@@ -1,3 +1,5 @@
+import { assetUrl } from '../utils/assets'
+
 export type BlogPost = {
   slug: string
   path: string
@@ -13,7 +15,7 @@ export type BlogPost = {
   commentCount?: number
 }
 
-const mediaPlaceholder = '/assets/media/2023/11/project-2-2.jpg'
+const mediaPlaceholder = assetUrl('/assets/media/2023/11/project-2-2.jpg')
 
 export const posts: BlogPost[] = [
   {

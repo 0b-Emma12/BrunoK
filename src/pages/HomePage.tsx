@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom'
+import { assetUrl } from '../utils/assets'
 import { BlogCard } from '../components/shared/BlogCard'
 import { GalleryGrid } from '../components/shared/GalleryGrid'
 import { ArrowIcon, CheckIcon } from '../components/shared/Icons'
@@ -32,7 +33,11 @@ export function HomePage() {
 
   return (
     <div className="home-page">
-      <section className="mil-banner mil-dark-bg home-hero" data-header-dark>
+      <section
+        className="mil-banner mil-dark-bg home-hero"
+        data-header-dark
+        style={{ backgroundImage: `url(${assetUrl('/assets/media/bruno-k/bruno-k-home-banner.png')})` }}
+      >
         <div className="mi-invert-fix">
           <div className="mil-animation-frame" aria-hidden="true">
             <div
@@ -151,7 +156,7 @@ export function HomePage() {
               <div className="about-visual mil-up">
                 <div className="mil-image-frame mil-vertical">
                   <img
-                    src="/assets/media/bruno-k/bruno-k-portrait-2.jpg"
+                    src={assetUrl('/assets/media/bruno-k/bruno-k-portrait-2.jpg')}
                     alt="Bruno K in a formal artist portrait"
                     loading="lazy"
                   />

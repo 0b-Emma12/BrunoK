@@ -1,3 +1,5 @@
+import { assetUrl } from '../utils/assets'
+
 export type NavItem = {
   label: string
   href: string
@@ -73,7 +75,7 @@ export const homeTeam = [
   {
     name: 'Bruno K',
     role: 'Singer · Songwriter · Guitarist · Actor',
-    image: '/assets/media/bruno-k/bruno-k-portrait-2.jpg',
+    image: assetUrl('/assets/media/bruno-k/bruno-k-portrait-2.jpg'),
     note: 'Bruno K in a formal artist portrait.',
   },
 ]
@@ -84,14 +86,14 @@ export const testimonials = [
   {
     name: 'Airtel Trace Music Stars',
     role: 'Career milestone',
-    logo: '/assets/media/bruno-k/airtel-trace-music-stars.jpg',
+    logo: assetUrl('/assets/media/bruno-k/airtel-trace-music-stars.jpg'),
     quote:
       'Encouraged by MC Kats to enter the competition, Bruno K finished as a Ugandan national runner-up.',
   },
   {
     name: 'Junior Drama Club',
     role: 'Acting · 2023',
-    image: '/assets/media/bruno-k/junior-drama-club.jpg',
+    image: assetUrl('/assets/media/bruno-k/junior-drama-club.jpg'),
     quote:
       'In 2023, Bruno K expanded his creative work with an acting appearance in the Ugandan television drama series.',
   },
