@@ -282,7 +282,7 @@ export function PortfolioPage({ variant = 'grid' }: PortfolioPageProps) {
                 Looking for a Bruno K <span className="mil-thin">performance?</span>
               </h3>
               <Link to="/services-6" className="mil-button mil-arrow-place">
-                Booking enquiries
+                <span>Booking enquiries</span>
               </Link>
             </div>
           </div>

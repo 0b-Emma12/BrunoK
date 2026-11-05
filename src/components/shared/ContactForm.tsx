@@ -146,7 +146,7 @@ export function ContactForm() {
         </div>
       </div>
       <button type="submit" className="mil-button mil-arrow-place">
-        Send enquiry
+        <span>Send enquiry</span>
       </button>
       <p className={`form-message contact-form-status ${status}`} aria-live="polite">
         {status === 'error' ? 'Please check the highlighted fields.' : null}

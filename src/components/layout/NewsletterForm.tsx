@@ -1,4 +1,5 @@
 import { useId, useState, type FormEvent } from 'react'
+import { ArrowIcon } from '../shared/Icons'
 
 export function NewsletterForm() {
   const inputId = useId()
@@ -37,8 +38,9 @@ export function NewsletterForm() {
         aria-invalid={status === 'error'}
         aria-describedby={messageId}
       />
-      <button type="submit" className="mil-button mil-icon-button-sm mil-arrow-place">
+      <button type="submit" className="mil-button mil-icon-button-sm mil-arrow-place" aria-label="Subscribe">
         <span className="sr-only">Subscribe</span>
+        <ArrowIcon />
       </button>
       <p id={messageId} className={`form-message ${status}`} aria-live="polite">
         {status === 'error' ? 'Please enter a valid email address.' : null}

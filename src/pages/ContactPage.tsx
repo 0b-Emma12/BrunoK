@@ -113,7 +113,7 @@ export function ContactPage() {
             </div>
             <div className="col-lg-4 mil-right">
               <Link to="/services-6" className="mil-button mil-arrow-place mil-up">
-                Booking information
+                <span>Booking information</span>
               </Link>
             </div>
           </div>

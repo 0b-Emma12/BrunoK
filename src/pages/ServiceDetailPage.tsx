@@ -54,7 +54,7 @@ export function ServiceDetailPage() {
                 production details. Source Management will confirm availability and next steps.
               </p>
               <Link to="/contact" className="mil-button mil-arrow-place mil-up">
-                Contact management
+                <span>Contact management</span>
               </Link>
             </div>
           </div>

@@ -57,7 +57,7 @@ export function ServicesPage() {
                   requirements and fees will be confirmed directly.
                 </p>
                 <Link to="/contact" className="mil-button mil-arrow-place mil-up">
-                  Submit a booking enquiry
+                  <span>Submit a booking enquiry</span>
                 </Link>
               </div>
               <div className="col-lg-6 offset-lg-1">

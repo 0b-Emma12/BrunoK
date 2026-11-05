@@ -74,7 +74,7 @@ export function HomePage() {
               </div>
               <div className="home-hero-actions">
                 <Link to="/portfolio-6" className="mil-button mil-arrow-place">
-                  Explore the music
+                  <span>Explore the music</span>
                 </Link>
                 <Link to="/portfolio-6" className="mil-link mil-muted mil-arrow-place">
                   <span>Watch videos</span>
@@ -149,7 +149,7 @@ export function HomePage() {
                 ))}
               </ul>
               <Link to="/home-2" className="mil-button mil-arrow-place mil-up">
-                Full biography &amp; milestones
+                <span>Full biography &amp; milestones</span>
               </Link>
             </div>
             <div className="col-lg-5 offset-lg-1">
@@ -248,7 +248,7 @@ export function HomePage() {
             </div>
             <div className="mil-center mil-pt-60">
               <Link to="/services-6" className="mil-button mil-arrow-place">
-                Booking information
+                <span>Booking information</span>
               </Link>
             </div>
           </div>

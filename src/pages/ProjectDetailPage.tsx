@@ -120,7 +120,7 @@ export function ProjectDetailPage() {
               rel="noopener noreferrer"
               className="mil-button mil-arrow-place"
             >
-              Search official channel
+              <span>Search official channel</span>
             </a>
           </div>
         </section>

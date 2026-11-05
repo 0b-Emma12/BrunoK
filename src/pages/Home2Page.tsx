@@ -26,7 +26,7 @@ export function Home2Page() {
               <div className="mil-right">
                 <span className="mil-social-frame">Artist management: Source Management · Roger</span>
                 <Link to="/services-6" className="mil-button mil-arrow-place">
-                  Booking enquiries
+                  <span>Booking enquiries</span>
                 </Link>
               </div>
             </div>
@@ -214,7 +214,7 @@ export function Home2Page() {
               </div>
               <div className="col-lg-4 mil-right">
                 <Link to="/services-6" className="mil-button mil-arrow-place mil-up">
-                  Booking enquiries
+                  <span>Booking enquiries</span>
                 </Link>
               </div>
             </div>

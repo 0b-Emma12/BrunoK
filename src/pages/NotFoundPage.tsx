@@ -13,7 +13,7 @@ export function NotFoundPage({ compact = false }: NotFoundPageProps) {
           <h2 className="mil-mb-20">Page not found</h2>
           <p className="mil-dark-soft mil-mb-40">The page you are looking for has moved or no longer exists.</p>
           <Link to="/" className="mil-button mil-arrow-place">
-            Back to home
+            <span>Back to home</span>
           </Link>
         </div>
       </section>
@@ -35,7 +35,7 @@ export function NotFoundPage({ compact = false }: NotFoundPageProps) {
             </h1>
             <p className="mil-muted mil-mb-40">Let us get you back to Bruno K’s music and story.</p>
             <Link to="/" className="mil-button mil-arrow-place">
-              Back to home
+              <span>Back to home</span>
             </Link>
             <Link to="/portfolio-6" className="mil-link mil-muted mil-arrow-place mil-ml-30">
               <span>Explore the music</span>
