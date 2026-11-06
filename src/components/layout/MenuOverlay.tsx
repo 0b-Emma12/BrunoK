@@ -16,15 +16,10 @@ function normalisePath(value: string) {
 export function MenuOverlay({ open, onClose }: MenuOverlayProps) {
   const { pathname } = useLocation()
   const panelRef = useRef<HTMLDivElement>(null)
-  const [expanded, setExpanded] = useState<string | null>(null)
-
-  useEffect(() => {
-    if (!open) return
-    const current = navItems.find((item) =>
-      item.children?.some((child) => normalisePath(child.href) === normalisePath(pathname)),
-    )
-    setExpanded(current?.label ?? null)
-  }, [open, pathname])
+  const initialExpanded = navItems.find((item) =>
+    item.children?.some((child) => normalisePath(child.href) === normalisePath(pathname)),
+  )?.label ?? null
+  const [expanded, setExpanded] = useState<string | null>(initialExpanded)
 
   useEffect(() => {
     if (!open) return

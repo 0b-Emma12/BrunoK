@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ArrowIcon, ZoomIcon } from '../components/shared/Icons'
 import { InnerBanner } from '../components/shared/InnerBanner'
+import { ReleasePlatformLinks } from '../components/shared/ReleasePlatformLinks'
+import { ReleaseArtwork } from '../components/shared/ReleaseArtwork'
 import { YouTubeMusicCard } from '../components/shared/YouTubeMusicCard'
 import { getProject, getProjectNeighbours } from '../data/projects'
 import { NotFoundPage } from './NotFoundPage'
@@ -38,17 +40,19 @@ export function ProjectDetailPage() {
         eyebrow={project.category}
         crumbs={[{ label: 'Music', href: '/portfolio-6' }, { label: project.title }]}
         dark
+        className="project-detail-banner"
       >
         <p className="mil-muted mil-up project-intro">{project.intro}</p>
       </InnerBanner>
 
       <section className="mil-p-120-60" id="project">
         <div className="container">
-          {!['faridah', 'one-for-the-road'].includes(project.slug) ? (
+          {project.cover && !['faridah', 'one-for-the-road'].includes(project.slug) ? (
             <div className="mil-image-frame mil-fw mil-up project-hero-image">
-              <img
+              <ReleaseArtwork
+                title={project.title}
+                releaseType={project.releaseType}
                 src={project.cover}
-                alt={`Placeholder artwork — replace with approved Bruno K artwork for ${project.title}`}
               />
             </div>
           ) : null}
@@ -70,6 +74,7 @@ export function ProjectDetailPage() {
               <strong>{project.author}</strong>
             </li>
           </ul>
+          <ReleasePlatformLinks project={project} />
           {project.metadataNote ? (
             <p className="music-catalogue-footnote" role="note">{project.metadataNote}</p>
           ) : null}
@@ -106,7 +111,7 @@ export function ProjectDetailPage() {
             </div>
           </div>
         </section>
-      ) : (
+      ) : !project.streamingLinks?.youtube ? (
         <section className="mil-soft-bg mil-p-120-90">
           <div className="container">
             <div className="mil-suptitle mil-suptitle-dark">Bruno K on YouTube</div>
@@ -124,7 +129,7 @@ export function ProjectDetailPage() {
             </a>
           </div>
         </section>
-      )}
+      ) : null}
 
       <section className="mil-pb-120">
         <div className="container">

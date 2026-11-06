@@ -27,6 +27,10 @@
   --soft: #f2f2f2;
   --line: rgba(0, 0, 0, 0.1);
   --light-line: rgba(255, 255, 255, 0.14);
+  --spotify-green: #1db954;
+  --spotify-green-hover: #1ed760;
+  --mdundo-orange: #ff8c00;
+  --mdundo-orange-hover: #ffa01a;
 }
 
 * {
@@ -63,7 +67,24 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: clip;
+  overflow-x: hidden;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+p,
+a,
+li,
+button,
+input,
+textarea {
+  overflow-wrap: anywhere;
 }
 
 html.mil-loading {
@@ -498,6 +519,79 @@ button {
   }
 }
 
+@media (max-width: 1024px) {
+  .home-hero {
+    min-height: 700px;
+    height: auto;
+    padding-bottom: 60px;
+  }
+
+  .home-hero h1 {
+    max-width: 820px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .stats-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .social-profile-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .menu-contact-card {
+    margin-left: 0;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-profile-links {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stat-item {
+    padding: 20px 16px;
+  }
+
+  .service-list-item {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 24px 12px;
+  }
+
+  .music-featured-release,
+  .youtube-music-card-featured,
+  .music-discovery {
+    grid-template-columns: 1fr;
+  }
+
+  .youtube-music-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .music-video-library-heading,
+  .music-catalogue-controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 360px) {
+  .stat-item {
+    min-width: 0;
+  }
+
+  .stat-value {
+    white-space: normal;
+  }
+}
+
 .mil-inner-banner {
   padding: 150px 0 90px;
   background: #f7f7f7;
@@ -843,6 +937,10 @@ button {
 .site-footer .mi-invert-fix {
   position: relative;
   z-index: 2;
+}
+
+.mil-content footer.mil-dark-bg.site-footer .mi-invert-fix div {
+  pointer-events: all;
 }
 
 .site-footer h6 {
@@ -1191,12 +1289,6 @@ button {
   font-weight: 500;
   letter-spacing: 2px;
   text-transform: uppercase;
-}
-
-.home-hero-copy {
-  max-width: 580px;
-  font-size: 18px;
-  line-height: 1.55;
 }
 
 .home-hero-actions {
@@ -1779,6 +1871,63 @@ button {
   aspect-ratio: 16 / 9;
   overflow: hidden;
   background: #111;
+}
+
+.youtube-inline-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #111;
+}
+
+.youtube-inline-embed-short {
+  width: min(100%, 300px);
+  aspect-ratio: 9 / 16;
+  margin-inline: auto;
+}
+
+.youtube-inline-embed > button {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: #111;
+  cursor: pointer;
+}
+
+.youtube-inline-embed > button img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.youtube-inline-embed > button:hover img {
+  transform: scale(1.03);
+}
+
+.youtube-inline-embed > iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.release-platform-video {
+  flex: 1 1 100%;
+  min-width: 0;
+}
+
+.release-platform-video .youtube-inline-embed {
+  max-width: 540px;
 }
 
 .youtube-player-poster {
@@ -3378,6 +3527,48 @@ button {
     padding: 125px 0 60px;
   }
 
+  .project-detail .project-detail-banner {
+    padding: 0;
+  }
+
+  .project-detail .project-detail-banner.mil-dark-bg .mi-invert-fix {
+    padding: 132px 0 42px;
+  }
+
+  .project-detail .project-detail-banner .mil-suptitle {
+    margin-bottom: 22px;
+  }
+
+  .project-detail .project-detail-banner h1 {
+    margin-bottom: 18px;
+  }
+
+  .services-page .services-page-banner {
+    padding: 0;
+  }
+
+  .services-page .services-page-banner.mil-dark-bg .mi-invert-fix {
+    padding: 132px 0 48px;
+  }
+
+  .services-page .services-page-banner .mil-suptitle {
+    margin-bottom: 22px;
+  }
+
+  .services-page .services-page-banner h1 {
+    margin-bottom: 18px;
+  }
+
+  .services-page .services-banner-row {
+    margin-top: 20px;
+  }
+
+  .services-page .services-banner-row p {
+    max-width: 620px;
+    margin-bottom: 0;
+    line-height: 1.65;
+  }
+
   .mil-p-120-90,
   .mil-p-120-60,
   .mil-p-120-0,
@@ -3395,16 +3586,92 @@ button {
   }
 
   .home-hero {
-    min-height: 620px;
-    padding-top: 140px;
+    min-height: calc(100svh + 24px);
+    min-height: calc(100dvh + 24px);
+    display: flex;
+    flex-direction: column;
+    padding: 126px 0 36px;
+    background-position: 38% center;
   }
 
-  .home-hero-copy {
-    font-size: 16px;
+  .home-hero > .mi-invert-fix {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+
+  .home-hero .container {
+    display: flex;
+    flex: 1;
+    align-items: stretch;
+  }
+
+  .home-hero .mil-banner-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 0;
+  }
+
+  .home-hero h1 {
+    margin-top: 18px;
+    margin-bottom: 28px;
+    font-size: clamp(2.8rem, 8vw, 4rem);
+    line-height: 1.02;
+    letter-spacing: -0.045em;
+  }
+
+  .home-hero-name,
+  .home-hero-soul,
+  .home-hero-tagline,
+  .home-hero-tagline > span {
+    display: block;
+  }
+
+  .home-hero-soul {
+    margin-top: 2px;
+    font-size: 0.86em;
   }
 
   .home-hero-actions {
-    gap: 18px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px 12px;
+    margin-top: 0;
+  }
+
+  .home-hero-actions > .mil-button {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+  }
+
+  .home-hero-actions > .mil-link {
+    width: auto;
+    min-width: 0;
+    justify-content: center;
+    gap: 8px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  .home-socials {
+    margin-top: 22px;
+  }
+
+  .home-socials p {
+    max-width: 340px;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .home-hero .mil-gradient {
+    background:
+      linear-gradient(90deg, rgba(0, 0, 0, 0.86) 0%, rgba(0, 0, 0, 0.66) 58%, rgba(0, 0, 0, 0.18) 100%),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.22) 0%, rgba(0, 0, 0, 0.18) 45%, rgba(0, 0, 0, 0.82) 100%);
   }
 
   .stats-row {
@@ -3463,12 +3730,18 @@ button {
     align-items: flex-start;
   }
 
+  .works-nav .mil-link {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
   .works-nav .mil-link:not(.works-prev) {
     text-align: right;
   }
 
   .works-nav .mil-link span {
     max-width: 120px;
+    min-width: 0;
   }
 
   .portfolio-meta {
@@ -3601,6 +3874,41 @@ button {
   }
 }
 
+@media screen and (max-width: 480px) {
+  .home-hero {
+    padding-top: 120px;
+    background-position: 45% center;
+  }
+
+  .home-hero h1 {
+    margin-top: 14px;
+    margin-bottom: 24px;
+    font-size: clamp(2.4rem, 11.8vw, 3rem);
+    line-height: 1.04;
+  }
+
+  .home-hero-eyebrow {
+    max-width: 100%;
+    font-size: 10px;
+    letter-spacing: 1.2px;
+  }
+
+  .home-hero .mil-button {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .home-hero-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .home-hero-actions > .mil-link {
+    min-height: 40px;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .site-footer {
     padding: 52px 0 28px;
@@ -3632,4 +3940,617 @@ button {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+.music-catalogue-content {
+  padding-top: 90px;
+  padding-bottom: 120px;
+}
+
+.music-featured-section,
+.music-latest-section,
+.music-format-sections,
+.music-complete-catalogue,
+.music-video-library,
+.music-artist-profiles {
+  margin-bottom: 90px;
+}
+
+.music-section-heading {
+  margin-bottom: 28px;
+}
+
+.music-section-heading h2,
+.music-artist-profiles h2 {
+  margin: 0;
+  color: #0b0b0b;
+  font-size: clamp(28px, 3vw, 42px);
+}
+
+.music-section-heading .mil-suptitle,
+.music-format-panel .mil-suptitle,
+.music-artist-profiles .mil-suptitle {
+  margin-bottom: 10px;
+}
+
+.music-release-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 34px 22px;
+}
+
+.music-release-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--line);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.music-release-card:hover {
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+.music-release-card:focus-within {
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+.music-release-card a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.music-release-card-artwork {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 1;
+  background: #151515;
+}
+
+.music-release-card-artwork-video .youtube-inline-embed {
+  height: 100%;
+  aspect-ratio: auto;
+  border-radius: 0;
+}
+
+.music-release-card-artwork-video .youtube-inline-embed-short {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.music-release-card-artwork > img,
+.music-release-card-artwork > .release-artwork-fallback {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.music-release-card:hover .music-release-card-artwork > img {
+  transform: scale(1.035);
+}
+
+.release-artwork-fallback {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 9px;
+  overflow: hidden;
+  padding: 18px;
+  background: #f2f2f2;
+  color: #555;
+  text-align: center;
+}
+
+.release-artwork-type,
+.release-artwork-fallback > span {
+  color: #666;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.mil-portfolio-item .mil-cover .release-artwork-fallback {
+  position: absolute;
+  inset: 0;
+}
+
+.music-release-card-content {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.music-release-card-type {
+  margin-bottom: 8px;
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.music-release-card-heading h3 {
+  margin: 0;
+  color: #111;
+  font-size: clamp(20px, 2vw, 25px);
+  font-weight: 500;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.music-release-card-artists {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.music-release-card-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 20px 0;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.music-release-card-meta > div {
+  min-width: 0;
+}
+
+.music-release-card-meta dt {
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.music-release-card-meta dd {
+  margin: 0;
+  color: #222;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.music-release-card-note {
+  margin: -4px 0 16px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.release-platform-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
+  padding: 0;
+  list-style: none;
+}
+
+.release-platform-actions a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.release-platform-actions a:hover {
+  background: #a90000;
+  color: #fff;
+}
+
+.release-platform-actions a:focus-visible {
+  outline: 2px solid #111;
+  outline-offset: 3px;
+}
+
+.release-platform-mdundo-logo {
+  width: auto;
+  height: 17px;
+  flex: 0 0 auto;
+  max-width: none;
+  object-fit: contain;
+}
+
+.music-release-unavailable {
+  margin: auto 0 0;
+  padding-top: 15px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.music-release-card-featured {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.85fr) minmax(0, 1.15fr);
+  align-items: stretch;
+}
+
+.music-release-card-featured .music-release-card-artwork {
+  height: 100%;
+  min-height: 340px;
+}
+
+.music-release-card-featured .music-release-card-content {
+  justify-content: center;
+  padding: clamp(24px, 4vw, 54px);
+}
+
+.music-release-card-featured .music-release-card-heading h3 {
+  font-size: clamp(30px, 4vw, 50px);
+}
+
+.music-data-note {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.music-format-sections {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.music-format-panel {
+  padding: clamp(24px, 4vw, 42px);
+  border: 1px solid var(--line);
+}
+
+.music-format-panel h2 {
+  margin: 0 0 12px;
+  color: #111;
+  font-size: clamp(24px, 3vw, 34px);
+}
+
+.music-format-panel p {
+  max-width: 480px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.music-format-panel-dark {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  background: #111;
+  color: #fff;
+}
+
+.music-format-panel-dark h2 {
+  color: #fff;
+}
+
+.music-format-panel-dark p {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.music-format-panel-dark .mil-button {
+  margin-top: 24px;
+}
+
+.music-catalogue-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.music-catalogue-heading p {
+  max-width: 330px;
+  margin: 0 0 4px;
+}
+
+.music-catalogue-controls {
+  flex-wrap: wrap;
+}
+
+.music-sort {
+  min-width: 210px;
+}
+
+.music-reset-button {
+  min-height: 46px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: #111;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.music-reset-button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.music-results-count {
+  margin: -8px 0 18px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.music-empty-state {
+  padding: 26px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.music-empty-state h3 {
+  margin: 0 0 8px;
+  color: #111;
+}
+
+.music-empty-state p {
+  margin: 0;
+}
+
+.music-empty-state .music-reset-button {
+  margin-top: 18px;
+}
+
+.music-video-library .youtube-music-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.music-artist-profiles {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
+  gap: 40px;
+  align-items: center;
+  padding: 38px;
+  border: 1px solid var(--line);
+}
+
+.music-artist-profiles h2 {
+  max-width: 520px;
+}
+
+.music-artist-profiles > div > p {
+  margin: 12px 0 0;
+}
+
+.music-artist-profiles .music-source-links {
+  margin: 0;
+}
+
+.music-catalogue-page .portfolio-footer-cta {
+  margin-top: 0;
+}
+
+@media (max-width: 1100px) {
+  .music-release-grid,
+  .music-video-library .youtube-music-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .music-catalogue-content {
+    padding-top: 64px;
+    padding-bottom: 80px;
+  }
+
+  .music-featured-section,
+  .music-latest-section,
+  .music-format-sections,
+  .music-complete-catalogue,
+  .music-video-library,
+  .music-artist-profiles {
+    margin-bottom: 64px;
+  }
+
+  .music-release-card-featured {
+    grid-template-columns: 1fr;
+  }
+
+  .music-release-card-featured .music-release-card-artwork {
+    min-height: 0;
+  }
+
+  .music-release-card-featured .music-release-card-content {
+    padding: 22px;
+  }
+
+  .music-format-sections,
+  .music-artist-profiles {
+    grid-template-columns: 1fr;
+  }
+
+  .music-catalogue-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .music-catalogue-controls {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .music-catalogue-controls label,
+  .music-reset-button {
+    width: 100%;
+    max-width: none;
+  }
+
+  .music-sort {
+    min-width: 0;
+  }
+
+  .music-artist-profiles {
+    gap: 22px;
+    padding: 24px;
+  }
+}
+
+@media (max-width: 560px) {
+  .music-release-grid,
+  .music-video-library .youtube-music-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .music-release-card-content {
+    padding: 18px;
+  }
+
+  .music-format-panel {
+    padding: 24px;
+  }
+
+  .music-category-filters {
+    gap: 7px;
+  }
+
+  .music-category-filters button {
+    min-height: 42px;
+    padding: 8px 11px;
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .music-release-card,
+  .music-release-card-artwork > img,
+  .music-listen-button,
+  .release-platform-actions a,
+  .music-source-link-spotify {
+    transition: none;
+  }
+
+  .music-release-card:hover {
+    transform: none;
+  }
+
+  .music-release-card:hover .music-release-card-artwork > img {
+    transform: none;
+  }
+
+  .release-platform-actions .release-platform-link-spotify:hover,
+  .release-platform-actions .release-platform-link-mdundo:hover,
+  .music-source-links .music-source-link-spotify:hover {
+    transform: none;
+  }
+
+  .youtube-inline-embed > button img {
+    transition: none;
+  }
+}
+
+.release-platform-actions .release-platform-link-spotify {
+  border: 1px solid var(--spotify-green);
+  border-radius: 999px;
+  background: var(--spotify-green);
+  box-shadow: 0 5px 14px rgba(29, 185, 84, 0.18);
+  color: #071b0e;
+  font-weight: 700;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.release-platform-actions .release-platform-link-mdundo {
+  border: 1px solid var(--mdundo-orange);
+  border-radius: 999px;
+  background: var(--mdundo-orange);
+  box-shadow: 0 5px 14px rgba(255, 140, 0, 0.2);
+  color: #17100a;
+  font-weight: 700;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.release-platform-actions .release-platform-link-mdundo:hover {
+  transform: translateY(-2px);
+  border-color: var(--mdundo-orange-hover);
+  background: var(--mdundo-orange-hover);
+  box-shadow: 0 8px 18px rgba(255, 140, 0, 0.3);
+  color: #17100a;
+}
+
+.release-platform-actions .release-platform-link-mdundo:focus-visible {
+  outline: 3px solid var(--mdundo-orange);
+  outline-offset: 3px;
+}
+
+.release-platform-actions .release-platform-link-spotify:hover {
+  transform: translateY(-2px);
+  border-color: var(--spotify-green-hover);
+  background: var(--spotify-green-hover);
+  box-shadow: 0 8px 18px rgba(29, 185, 84, 0.28);
+  color: #071b0e;
+}
+
+.release-platform-actions .release-platform-link-spotify:focus-visible,
+.music-source-links .music-source-link-spotify:focus-visible {
+  outline: 3px solid var(--spotify-green);
+  outline-offset: 3px;
+}
+
+.release-platform-link-spotify > i:first-child {
+  font-size: 17px;
+}
+
+.release-platform-link-spotify > i:last-child {
+  font-size: 10px;
+  opacity: 0.7;
+}
+
+.music-source-links .music-source-link-spotify {
+  min-height: 52px;
+  padding: 12px 16px;
+  border: 1px solid rgba(29, 185, 84, 0.24);
+  border-radius: 12px;
+  background: rgba(29, 185, 84, 0.08);
+  color: #102719;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.music-source-links .music-source-link-spotify:hover {
+  transform: translateY(-2px);
+  border-color: var(--spotify-green);
+  background: var(--spotify-green);
+  box-shadow: 0 8px 20px rgba(29, 185, 84, 0.2);
+  color: #071b0e;
+}
+
+.music-source-links .music-source-link-spotify > i:first-child {
+  color: #138a3d;
+  font-size: 21px;
+}
+
+.music-source-links .music-source-link-spotify:hover > i:first-child {
+  color: #071b0e;
 }

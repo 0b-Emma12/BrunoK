@@ -1,17 +1,18 @@
-import { useEffect } from 'react'
+import { useEffect, type RefObject } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
 type Options = {
-  scope: HTMLElement | null
+  scopeRef: RefObject<HTMLElement | null>
   enabled: boolean
   routeKey: string
 }
 
-export function useRevealAnimations({ scope, enabled, routeKey }: Options) {
+export function useRevealAnimations({ scopeRef, enabled, routeKey }: Options) {
   useEffect(() => {
+    const scope = scopeRef.current
     if (!scope || !enabled) return
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -107,5 +108,5 @@ export function useRevealAnimations({ scope, enabled, routeKey }: Options) {
       window.cancelAnimationFrame(frame)
       context.revert()
     }
-  }, [enabled, routeKey, scope])
+  }, [enabled, routeKey, scopeRef])
 }

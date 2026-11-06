@@ -3,6 +3,7 @@ import { Autoplay, Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Link } from 'react-router-dom'
 import { InnerBanner } from '../components/shared/InnerBanner'
+import { MusicCatalogue } from '../components/shared/MusicCatalogue'
 import { PortfolioCard } from '../components/shared/PortfolioCard'
 import { ArrowIcon } from '../components/shared/Icons'
 import { musicSources, projects } from '../data/projects'
@@ -78,6 +79,8 @@ export function PortfolioPage({ variant = 'grid' }: PortfolioPageProps) {
       .map((video) => ({ project, video })),
   )
 
+  if (variant === 'grid') return <MusicCatalogue />
+
   return (
     <div className={`portfolio-page portfolio-${variant}`}>
       <InnerBanner
@@ -140,7 +143,12 @@ export function PortfolioPage({ variant = 'grid' }: PortfolioPageProps) {
               <ul className="music-source-links">
                 {musicSources.map((source) => (
                   <li key={source.label}>
-                    <a href={source.href} target="_blank" rel="noopener noreferrer">
+                    <a
+                      className={source.label === 'Spotify' ? 'music-source-link-spotify' : undefined}
+                      href={source.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <i className={`fa-brands ${source.icon}`} aria-hidden="true" />
                       <span>{source.action}</span>
                       <i className="fa-solid fa-arrow-up-right-from-square" aria-hidden="true" />

@@ -19,9 +19,16 @@ export function SiteFrame({ children }: SiteFrameProps) {
   const mainRef = useRef<HTMLElement>(null)
   const progressRef = useRef<HTMLDivElement>(null)
   const scrollPositionsRef = useRef(new Map<string, number>())
+  const animationFrameRef = useRef<number | null>(null)
   const [ready, setReady] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [menuPath, setMenuPath] = useState(pathname)
   const [headerDark, setHeaderDark] = useState(false)
+
+  if (menuPath !== pathname) {
+    setMenuPath(pathname)
+    setMenuOpen(false)
+  }
 
   const handlePreloaderComplete = useCallback(() => setReady(true), [])
   const pageLabel = getPageLabel(pathname)
@@ -29,14 +36,10 @@ export function SiteFrame({ children }: SiteFrameProps) {
     ? `https://wa.me/${contactDetails.phone.replace(/\D/g, '')}`
     : ''
 
-  useRevealAnimations({ scope: mainRef.current, enabled: ready, routeKey: pathname })
+  useRevealAnimations({ scopeRef: mainRef, enabled: ready, routeKey: pathname })
 
   useEffect(() => {
     document.title = getDocumentTitle(pathname)
-  }, [pathname])
-
-  useEffect(() => {
-    setMenuOpen(false)
   }, [pathname])
 
   useEffect(() => {
@@ -76,7 +79,6 @@ export function SiteFrame({ children }: SiteFrameProps) {
   useEffect(() => {
     if (!ready) return
 
-    let frame = 0
     const update = () => {
       const progress = progressRef.current
       if (progress) {
@@ -94,8 +96,10 @@ export function SiteFrame({ children }: SiteFrameProps) {
     }
 
     const requestUpdate = () => {
-      window.cancelAnimationFrame(frame)
-      frame = window.requestAnimationFrame(update)
+      if (animationFrameRef.current !== null) {
+        window.cancelAnimationFrame(animationFrameRef.current)
+      }
+      animationFrameRef.current = window.requestAnimationFrame(update)
     }
 
     update()
@@ -104,7 +108,9 @@ export function SiteFrame({ children }: SiteFrameProps) {
     const timer = window.setTimeout(requestUpdate, 250)
 
     return () => {
-      window.cancelAnimationFrame(frame)
+      if (animationFrameRef.current !== null) {
+        window.cancelAnimationFrame(animationFrameRef.current)
+      }
       window.clearTimeout(timer)
       window.removeEventListener('scroll', requestUpdate)
       window.removeEventListener('resize', requestUpdate)
@@ -131,7 +137,7 @@ export function SiteFrame({ children }: SiteFrameProps) {
         pageLabel={pageLabel}
         onToggleMenu={() => setMenuOpen((current) => !current)}
       />
-      <MenuOverlay open={menuOpen} onClose={() => setMenuOpen(false)} />
+      <MenuOverlay key={pathname} open={menuOpen} onClose={() => setMenuOpen(false)} />
 
       <div className="mil-content">
         <main id="main-content" ref={mainRef}>

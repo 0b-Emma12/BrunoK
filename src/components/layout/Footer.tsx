@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { contactDetails, footerLinks, socialLinks } from '../../data/site'
+import { footerLinks, socialLinks } from '../../data/site'
 import { NewsletterForm } from './NewsletterForm'
 
 const primaryLinks = footerLinks.slice(0, 5)
@@ -51,7 +51,7 @@ export function Footer() {
           <div className="footer-divider" />
 
           <div className="row footer-bottom">
-            <div className="col-lg-4">
+            <div className="col-12">
               <ul className="mil-social-icons footer-social-links mil-up">
                 {socialLinks.map((social) => (
                   <li key={social.label}>
@@ -70,28 +70,6 @@ export function Footer() {
               </ul>
               <p className="footer-copy mil-light-soft">
                 © {copyrightYear} Bruno K. All Rights Reserved.
-              </p>
-            </div>
-            <div className="col-lg-4 col-sm-6">
-              <h6>Artist management</h6>
-              <p className="mil-light-soft">
-                {contactDetails.management}
-                <br />
-                Representative: {contactDetails.representative}
-                <br />
-                {contactDetails.email ? (
-                  <a href={`mailto:${contactDetails.email}`}>{contactDetails.email}</a>
-                ) : (
-                  'Contact details to be added by management.'
-                )}
-              </p>
-            </div>
-            <div className="col-lg-4 col-sm-6">
-              <h6>Artist identity</h6>
-              <p className="mil-light-soft">
-                Ugandan Soul. African Rhythm. Global Sound.
-                <br />
-                The Voice. The Guitar. The Experience.
               </p>
             </div>
           </div>

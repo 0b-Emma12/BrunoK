@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import type { Project } from '../../data/projects'
 import { ArrowIcon } from './Icons'
+import { ReleaseArtwork } from './ReleaseArtwork'
 
 type PortfolioCardProps = {
   project: Project
@@ -35,11 +36,7 @@ export function PortfolioCard({
     >
       <div className={`mil-cover-frame ${vertical ? 'mil-vert' : 'mil-hori'}`}>
         <div className="mil-cover">
-          <img
-            src={project.cover}
-            alt={`Placeholder artwork — replace with approved Bruno K artwork for ${project.title}`}
-            loading="lazy"
-          />
+          <ReleaseArtwork title={project.title} releaseType={project.releaseType} src={project.cover} />
         </div>
       </div>
       <div className="mil-descr">

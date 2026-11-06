@@ -11,6 +11,7 @@ export function ServicesPage() {
         eyebrow="Bookings & management"
         crumbs={[{ label: 'Bookings' }]}
         dark
+        className="services-page-banner"
       >
         <div className="row services-banner-row">
           <div className="col-lg-7">

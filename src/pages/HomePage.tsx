@@ -57,21 +57,12 @@ export function HomePage() {
             <div className="mil-banner-content mil-up">
               <div className="home-hero-eyebrow">The voice. The guitar. The experience.</div>
               <h1 className="el-title mil-muted mil-mb-40">
-                BRUNO K{' '}
-                <span className="mil-thin">
-                  Ugandan Soul.
+                <span className="home-hero-name">BRUNO K</span>{' '}
+                <span className="mil-thin home-hero-soul">Ugandan Soul.</span>{' '}
+                <span className="home-hero-tagline">
+                  African Rhythm.{' '}<span>Global Sound.</span>
                 </span>
-                {' '}
-                African Rhythm. Global Sound.
               </h1>
-              <div className="row">
-                <div className="col-lg-6">
-                  <p className="mil-muted mil-mb-40 home-hero-copy">
-                    Discover the music and creative journey of Bruno Kiggundu — Ugandan singer,
-                    songwriter, guitarist and actor.
-                  </p>
-                </div>
-              </div>
               <div className="home-hero-actions">
                 <Link to="/portfolio-6" className="mil-button mil-arrow-place">
                   <span>Explore the music</span>
@@ -271,7 +262,7 @@ export function HomePage() {
               </Link>
             </div>
           </div>
-          <div className="row">
+          <div className="row justify-content-center">
             {projects.slice(0, 3).map((project, index) => (
               <div className={`col-lg-${index === 0 ? 7 : 5}`} key={project.slug}>
                 <PortfolioCard project={project} vertical={index !== 0} />
